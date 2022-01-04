@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<style>
-		#img{
-			width: 300px;
-			height: 300px;
-			display: block;
-			border: 1px solid red;
-		}
-	</style>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        button{
+            background-color:white;
+            color: green;
+            width: 100%;
+            display: block;
+            font-size:50px;
+            border-bottom: 1px solid red;
+            padding:30px 0;
+        }
+    </style>
+    
 </head>
 <body>
-<span>点击下边按钮调用手机相机，给下边的image赋值</span><br>
-<button onclick="openCamera()">打开相机</button>
-<img src="" id="img">
+
+<button onclick="UIWebViewClick('UIWebView调用OC方法的参数')">UIWebView调用OC</button>
+<button onclick="WKWebViewClick()">WKWebView调用OC</button>
+<button onclick="UIWebViewClick()">WKWebView调用OC</button>
 </body>
 
 </html>
+
+
+<script>
+    function showAlert(msg){
+        alert(msg);
+        return msg;
+    }
+    
+    function WKWebViewClick(){
+        window.webkit.messageHandlers.WKWebViewClick.postMessage('WKWebView调用OC');
+    }
+</script>
